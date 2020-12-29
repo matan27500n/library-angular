@@ -13,20 +13,30 @@
             <form id="login-form" class="form" action="" method="post">
               <h3 class="text-center text-info">Login</h3>
               <div class="form-group">
-                <label for="username" class="text-info">Username:</label><br>
-                <input type="text" name="username" id="username" class="form-control">
+                <label for="email" class="text-info">Username:</label><br>
+                <input type="email" name="email" id="email" class="form-control" [(ngModel)]="credentials.email">
               </div>
               <div class="form-group">
                 <label for="password" class="text-info">Password:</label><br>
-                <input type="text" name="password" id="password" class="form-control">
+                <input type="password" name="password" id="password" class="form-control"
+                  [(ngModel)]="credentials.password">
+              </div>
+              <div class="form-group">
+                <label for="type">Select Type</label>
+                <select class="form-control" id="type" name="type" [(ngModel)]="credentials.type">
+                  <option>Admin</option>
+                  <option>Author</option>
+                  <option>Customer</option>
+                </select>
               </div>
               <div class="form-group">
                 <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me"
                       name="remember-me" type="checkbox"></span></label><br>
-                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit" (click)="login()">
               </div>
               <div id="register-link" class="text-right">
-                <a href="#" class="text-info">Register here</a>
+                <a [routerLink]="['/register']" routerLinkActive="router-link-active" class="text-info">Register
+                  here</a>
               </div>
             </form>
           </div>

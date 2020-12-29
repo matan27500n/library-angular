@@ -12,4 +12,8 @@ export class BooksComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  createBook(){
+    
+  }
+
 }
