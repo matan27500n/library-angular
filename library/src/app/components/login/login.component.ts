@@ -21,10 +21,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   login() {
-    alert('begin');
     this.loginService.loginRequest(this.credentials).subscribe(
       (loginResponse) => {
-        alert('success');
         this.loginSuccess = true;
         this.loginService.token = loginResponse.token;
         this.loginService.type = loginResponse.type;
