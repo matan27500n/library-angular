@@ -8,9 +8,10 @@ import { BooksComponent } from './components/books/books.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { RegisterComponent } from './components/register/register.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Page404Component } from './components/page404/page404.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -23,13 +24,14 @@ import { Page404Component } from './components/page404/page404.component';
     RegisterComponent,
     Page404Component,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    },
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

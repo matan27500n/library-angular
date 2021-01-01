@@ -19,13 +19,32 @@ export class LoginService {
     this.email = credentials.email;
     this.password = credentials.password;
     this.type = credentials.type;
-    this.isLoggedIn = true;
-    return this.httpClient.post(
-      'http://localhost:8080/admin/login/' +
-        credentials.email +
-        '/' +
-        credentials.password,
-      null
-    );
+    switch (this.type) {
+      case 'Admin':
+        this.isLoggedIn = true;
+        return this.httpClient.post(
+          'http://localhost:8080/admin/login/' +
+            credentials.email +
+            '/' +
+            credentials.password,
+          null
+        );
+      case 'Author':
+        return this.httpClient.post(
+          'http://localhost:8080/company/login/' +
+            credentials.email +
+            '/' +
+            credentials.password,
+          null
+        );
+      case 'Customer':
+        return this.httpClient.post(
+          'http://localhost:8080/customer/login/' +
+            credentials.email +
+            '/' +
+            credentials.password,
+          null
+        );
+    }
   }
 }

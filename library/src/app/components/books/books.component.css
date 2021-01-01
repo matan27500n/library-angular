@@ -1,33 +1,50 @@
+.container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+}
 .image {
-  opacity: 1;
   display: block;
-  width: 100%;
-  height: auto;
-  transition: 0.5s ease;
-  backface-visibility: hidden;
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
-.card:hover .image {
-  opacity: 0.3;
+.overlay {
+  position: absolute;
+  transition: all 0.3s ease;
+  opacity: 0;
+  background-color: #eee;
 }
-
-.card:hover .middle {
+.container:hover .overlay {
   opacity: 1;
 }
-
-.card-text {
-  background-color: #4caf50;
+.text {
   color: white;
-  font-size: 16px;
-  padding: 16px 32px;
-}
-
-.card-body {
-  transition: 0.5s ease;
-  opacity: 0;
+  font-family: sans-serif;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 45%;
+  left: 40%;
   transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
+  font-size: 15px;
+}
+/*.overlayLeft {
+  height: 100%;
+  width: 0;
+  top: 0;
+  left: 0;
+  background-color: #00b1ba;
+}*/
+/*.container:hover .overlayLeft {
+  width: 100%;
+}*/
+
+.overlayFade {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #00b1bab3;
 }

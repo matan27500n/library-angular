@@ -1,6 +1,8 @@
+import { LoginService } from './../../services/login.service';
 import { AuthorService } from './../../services/author.service';
 import { Book } from './../../models/book';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-books',
@@ -9,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BooksComponent implements OnInit {
   book = new Book();
-  constructor(private authorService: AuthorService) {}
+  type: string;
+  constructor(
+    private authorService: AuthorService,
+    private loginService: LoginService
+  ) {}
 
   ngOnInit(): void {
+    this.type = this.loginService.type;
     this.createBook();
   }
 
