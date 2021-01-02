@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class BooksComponent implements OnInit {
   book = new Book();
   type: string;
+  isAfford = false;
   constructor(
     private authorService: AuthorService,
     private loginService: LoginService
@@ -19,6 +20,10 @@ export class BooksComponent implements OnInit {
 
   ngOnInit(): void {
     this.type = this.loginService.type;
+    if (this.type === 'Admin') {
+      this.isAfford = true;
+      console.log('is afford? ' + this.isAfford);
+    }
     this.createBook();
   }
 

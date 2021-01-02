@@ -12,6 +12,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Page404Component } from './components/page404/page404.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,13 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     RegisterComponent,
     Page404Component,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

@@ -31,7 +31,7 @@ export class LoginService {
         );
       case 'Author':
         return this.httpClient.post(
-          'http://localhost:8080/company/login/' +
+          'http://localhost:8080/author/login/' +
             credentials.email +
             '/' +
             credentials.password,

@@ -4,11 +4,14 @@
     <div class="overlay overlayFade">
       <div class="text">
         <label>Book Name</label>
-        <input type="text" class="form-control" placeholder="Enter name" [(ngModel)]="book.name" disabled>
+        <input type="text" class="form-control" placeholder="Enter name" [(ngModel)]="book.name"
+          [disabled]="isAfford ? false : null">
         <label>Category</label>
-        <input type="text" class="form-control" placeholder="Enter category" [(ngModel)]="book.category" disabled>
+        <input type="text" class="form-control" placeholder="Enter category" [(ngModel)]="book.category"
+          [disabled]="isAfford ? false : null">
         <label>Price</label>
-        <input type="number" class="form-control" placeholder="Enter price" [(ngModel)]="book.price" disabled>
+        <input type="number" class="form-control" placeholder="Enter price" [(ngModel)]="book.price"
+          [disabled]="isAfford ? false : null">
         <a [routerLink]="['/home']" routerLinkActive="router-link-active" class="btn btn-primary">Purchase</a>
         <button class="btn btn-warning">Update</button>
         <button class="btn btn-danger">Delete</button>
