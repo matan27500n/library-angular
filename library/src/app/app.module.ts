@@ -13,6 +13,10 @@ import { FormsModule } from '@angular/forms';
 import { Page404Component } from './components/page404/page404.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PurchasesComponent } from './components/purchases/purchases.component';
+import { AuthorsDetailsComponent } from './components/authors-details/authors-details.component';
+import { CustomersDetailsComponent } from './components/customers-details/customers-details.component';
+import { AddBookComponent } from './components/add-book/add-book.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     BooksComponent,
     RegisterComponent,
     Page404Component,
+    PurchasesComponent,
+    AuthorsDetailsComponent,
+    CustomersDetailsComponent,
+    AddBookComponent,
   ],
   imports: [
     BrowserModule,

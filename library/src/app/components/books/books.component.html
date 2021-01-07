@@ -1,26 +1,22 @@
 <body>
-  <div class="container">
-    <img src="{{book.image}}" alt="img" class="image">
+  <div class="container" *ngFor="let item of books">
+    <img src="{{item.image}}" alt="img" class="image">
     <div class="overlay overlayFade">
       <div class="text">
         <label>Book Name</label>
-        <input type="text" class="form-control" placeholder="Enter name" [(ngModel)]="book.name"
+        <input type="text" class="form-control" placeholder="Enter name" [(ngModel)]="item.name"
           [disabled]="isAfford ? false : null">
         <label>Category</label>
-        <input type="text" class="form-control" placeholder="Enter category" [(ngModel)]="book.category"
+        <input type="text" class="form-control" placeholder="Enter category" [(ngModel)]="item.category"
           [disabled]="isAfford ? false : null">
         <label>Price</label>
-        <input type="number" class="form-control" placeholder="Enter price" [(ngModel)]="book.price"
+        <input type="number" class="form-control" placeholder="Enter price" [(ngModel)]="item.price"
           [disabled]="isAfford ? false : null">
-        <a [routerLink]="['/home']" routerLinkActive="router-link-active" class="btn btn-primary">Purchase</a>
-        <button class="btn btn-warning">Update</button>
-        <button class="btn btn-danger">Delete</button>
+        <button class="btn btn-primary" *ngIf="canPurchase" (click)="purchaseBook()">Purchase</button>
+        <button class="btn btn-warning" (click)="updateBook(item)">Update</button>
+        <button class="btn btn-danger" (click)="deleteBook(item.id)">Delete</button>
+        <div class="alert alert-success" *ngIf="message">{{message}}</div>
       </div>
     </div>
   </div>
 </body>
-
-
-<!--<u>Name: </u><br>{{book.name}}<br>
-<u>Category: </u><br>{{book.category}}<br>
-<u>Price: </u><br>{{book.price}}<br><br>-->

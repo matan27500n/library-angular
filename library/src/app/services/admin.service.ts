@@ -23,10 +23,4 @@ export class AdminService {
   public logout(): Observable<any> {
     return this.httpClient.delete<any>('http://localhost:8080/admin/logout');
   }
-
-  public loginRequest(email: string, password: string) {
-    return this.httpClient.get(
-      'http://localhost:8080/admin/login/' + email + '/' + password
-    );
-  }
 }

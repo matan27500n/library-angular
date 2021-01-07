@@ -21,14 +21,49 @@ export class AuthorService {
     return options;
   }
 
+  public getAuthorID(email: string, password: string): Observable<any> {
+    return this.httpClient.get<any>(
+      'http://localhost:8080/author/getAuthorID/' + email + '/' + password,
+      this.resetToken()
+    );
+  }
+
   public getOneBook(id: number): Observable<Book> {
     const headers = new HttpHeaders({
       'Coupon-System-Header': this.tokenManager.getToken(),
     });
     const options = { headers: headers };
     return this.httpClient.get<Book>(
-      'http://localhost:8080/admin/getOneBook/' + id,
-      options
+      'http://localhost:8080/author/getOneBook/' + id,
+      this.resetToken()
+    );
+  }
+
+  public addBook(book: Book): Observable<any> {
+    return this.httpClient.post<Book>(
+      'http://localhost:8080/author/addBook/',
+      book
+    );
+  }
+
+  public updateBook(book: Book): Observable<any> {
+    return this.httpClient.put<Book>(
+      'http://localhost:8080/author/updateBook/',
+      book,
+      this.resetToken()
+    );
+  }
+
+  public deleteBook(id: number): Observable<any> {
+    return this.httpClient.delete(
+      'http://localhost:8080/author/deleteBook/' + id
+    );
+  }
+
+  public getAllBooks(id: number): Observable<any> {
+    return this.httpClient.get<Book[]>(
+      'http://localhost:8080/author/getAllBooks/' + id,
+      this.resetToken()
     );
   }
 }
