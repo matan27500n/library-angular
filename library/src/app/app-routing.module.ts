@@ -8,13 +8,11 @@ import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { Page404Component } from './components/page404/page404.component';
 import { PurchasesComponent } from './components/purchases/purchases.component';
-import { RegisterComponent } from './components/register/register.component';
 import { CustomersDetailsComponent } from './components/customers-details/customers-details.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
   { path: 'home', component: HomeComponent },
   { path: 'books', component: BooksComponent },
   { path: 'purchases', component: PurchasesComponent },

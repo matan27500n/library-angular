@@ -7,7 +7,6 @@ import { HomeComponent } from './components/home/home.component';
 import { BooksComponent } from './components/books/books.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
-import { RegisterComponent } from './components/register/register.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Page404Component } from './components/page404/page404.component';
@@ -26,7 +25,6 @@ import { AddBookComponent } from './components/add-book/add-book.component';
     LoginComponent,
     LogoutComponent,
     BooksComponent,
-    RegisterComponent,
     Page404Component,
     PurchasesComponent,
     AuthorsDetailsComponent,
