@@ -5,16 +5,17 @@
       <div class="text">
         <label>Book Name</label>
         <input type="text" class="form-control" placeholder="Enter name" [(ngModel)]="item.name"
-          [disabled]="isAfford ? false : null">
+          [disabled]="isAfford ? false : true">
         <label>Category</label>
         <input type="text" class="form-control" placeholder="Enter category" [(ngModel)]="item.category"
-          [disabled]="isAfford ? false : null">
+          [disabled]="isAfford ? false : true">
         <label>Price</label>
         <input type="number" class="form-control" placeholder="Enter price" [(ngModel)]="item.price"
-          [disabled]="isAfford ? false : null">
-        <button class="btn btn-primary" *ngIf="canPurchase" (click)="purchaseBook()">Purchase</button>
-        <button class="btn btn-warning" (click)="updateBook(item)">Update</button>
+          [disabled]="isAfford ? false : true">
+        <button class="btn btn-primary" *ngIf="canPurchase" (click)="purchaseBook(item)">Purchase</button>
+        <button class="btn btn-warning" (click)="updateBook(item)" *ngIf="isAfford">Update</button>
         <button class="btn btn-danger" (click)="deleteBook(item.id)">Delete</button>
+        <button class="btn btn-success" (click)="addBook()" *ngIf="isAfford">Add Book</button>
         <div class="alert alert-success" *ngIf="message">{{message}}</div>
       </div>
     </div>

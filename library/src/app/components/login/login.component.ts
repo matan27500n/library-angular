@@ -1,3 +1,5 @@
+import { LoginResponse } from './../../models/LoginResponse';
+import { CustomerService } from './../../services/customer.service';
 import { AuthorService } from './../../services/author.service';
 import { LoginService } from './../../services/login.service';
 import { Router } from '@angular/router';
@@ -18,7 +20,8 @@ export class LoginComponent implements OnInit {
     private adminService: AdminService,
     private router: Router,
     private loginService: LoginService,
-    private authorService: AuthorService
+    private authorService: AuthorService,
+    private customerService: CustomerService
   ) {}
 
   ngOnInit(): void {}
@@ -30,22 +33,11 @@ export class LoginComponent implements OnInit {
         this.loginService.token = loginResponse.token;
         this.loginService.type = loginResponse.type;
         this.loginService.isLoggedIn = true;
-        this.authorService
-          .getAuthorID(this.credentials.email, this.credentials.password)
-          .subscribe(
-            (res) => {
-              this.id = res;
-              this.router.navigate(['books', this.id]);
-            },
-            (err) => {
-              alert(err.message);
-              this.loginService.isLoggedIn = false;
-            }
-          );
+        this.router.navigateByUrl('books');
       },
       (err) => {
-        alert('Invalid email or password or type');
         this.loginService.isLoggedIn = false;
+        alert(err.message);
       }
     );
   }

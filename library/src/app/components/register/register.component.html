@@ -1,34 +1,16 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<div class="container register-form">
-  <div class="form">
-    <div class="note">
-      <h1>Register Form</h1>
-    </div>
-
-    <div class="form-content">
-      <div class="row">
-        <div class="col-md-6">
+<h1>register Form</h1>
+<div class="container">
+  <div id="register-row" class="row justify-content-center align-items-center">
+    <div id="register-column" class="col-md-6">
+      <div id="register-box" class="col-md-12">
+        <form id="register-form" class="form" action="" method="POST">
+          <h3 class="text-center text-info">Register</h3>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Your Name *" value="" />
+            <label class="text-info">First Name:</label><br>
+            <input type="text" name="first" id="first" class="form-control">
           </div>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Phone Number *" value="" />
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Your Password *" value="" />
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Confirm Password *" value="" />
-          </div>
-        </div>
+        </form>
       </div>
-      <button type="button" class="btnSubmit">Submit</button>
     </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<h1>Add Book</h1>
+<!--<h1>Add Book</h1>
 <form>
   <div class="form-group col-md-6">
     <label for="inputEmail4">Name</label>
@@ -22,4 +22,39 @@
     <input type="text" class="form-control" id="inputImage" placeholder="Enter image address" [(ngModel)]="book.image">
   </div>
   <button class="btn btn-primary" (click)="addBook(book)">Add Book</button>
-</form>
+</form>-->
+
+
+
+<div class="container">
+  <h1>Add Book</h1><br>
+
+  <div class="alert alert-warning" *ngIf="bookForm.invalid">Enter valid values</div>
+
+  <form (ngSubmit)="!bookForm.invalid && addBook(book)" #bookForm="ngForm">
+    <fieldset class="form-group col-md-6">
+      <label>Name</label>
+      <input type="text" #name="ngModel" [(ngModel)]="book.name" class="form-control" name="name" minlength="1"
+        required>
+    </fieldset>
+    <fieldset class="form-group col-md-6">
+      <label>Category</label>
+      <select class="form-control" [(ngModel)]="book.category" required #category="ngModel" name="category">
+        <option>Comedy</option>
+        <option>Drama</option>
+        <option>Action</option>
+        <option>Horror</option>
+      </select>
+    </fieldset>
+    <fieldset class="form-group col-md-6">
+      <label>Price</label>
+      <input type="number" #price="ngModel" [(ngModel)]="book.price" class="form-control" name="price" required>
+    </fieldset>
+    <fieldset class="form-group col-md-6">
+      <label>Image</label>
+      <input type="text" #image="ngModel" [(ngModel)]="book.image" class="form-control" name="image" required>
+    </fieldset>
+    <button type="submit" class="btn btn-success">Save</button>
+    <div class="alert alert-success" *ngIf="message">{{message}}</div>
+  </form>
+</div>

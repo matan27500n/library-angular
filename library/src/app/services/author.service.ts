@@ -23,8 +23,7 @@ export class AuthorService {
 
   public getAuthorID(email: string, password: string): Observable<any> {
     return this.httpClient.get<any>(
-      'http://localhost:8080/author/getAuthorID/' + email + '/' + password,
-      this.resetToken()
+      'http://localhost:8080/author/getAuthorID/' + email + '/' + password
     );
   }
 
