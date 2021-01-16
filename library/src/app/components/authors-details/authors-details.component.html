@@ -1,1 +1,22 @@
-<p>authors-details works!</p>
+<div class="container">
+  <table class="table table-image">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Books</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of authors">
+        <td>{{item.id}}</td>
+        <td>{{item.first_name}} {{item.last_name}}</td>
+        <td>{{item.email}}</td>
+        <td>{{item.password}}</td>
+        <td *ngFor="let book of item.books">{{book.name}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

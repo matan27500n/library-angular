@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   public id: number;
   public loginSuccess = false;
   public credentials = new Credentials();
+  message: string;
   constructor(
     private adminService: AdminService,
     private router: Router,
@@ -33,7 +34,11 @@ export class LoginComponent implements OnInit {
         this.loginService.token = loginResponse.token;
         this.loginService.type = loginResponse.type;
         this.loginService.isLoggedIn = true;
-        this.router.navigateByUrl('books');
+        this.message = 'You login successfully! Have a nice day';
+        setTimeout(() => {
+          this.message = '';
+          this.router.navigateByUrl('books');
+        }, 2500);
       },
       (err) => {
         this.loginService.isLoggedIn = false;
