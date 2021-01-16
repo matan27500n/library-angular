@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,14 +10,13 @@ import { BooksComponent } from './components/books/books.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { Page404Component } from './components/page404/page404.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
-import { ReactiveFormsModule } from '@angular/forms';
 import { PurchasesComponent } from './components/purchases/purchases.component';
 import { AuthorsDetailsComponent } from './components/authors-details/authors-details.component';
 import { CustomersDetailsComponent } from './components/customers-details/customers-details.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AddBookComponent } from './components/add-book/add-book.component';
     AuthorsDetailsComponent,
     CustomersDetailsComponent,
     AddBookComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
