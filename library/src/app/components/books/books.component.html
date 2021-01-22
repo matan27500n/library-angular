@@ -1,5 +1,9 @@
 <body>
-  <div class="container" *ngFor="let item of books">
+  <div class="search-hero">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+      placeholder="&#61442;  Start searching for a book by name, price or type">
+  </div>
+  <div class="container" *ngFor="let item of books | filter:searchText">
     <img src="{{item.image}}" alt="img" class="image">
     <div class="overlay overlayFade">
       <div class="text">

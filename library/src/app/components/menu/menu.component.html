@@ -25,15 +25,12 @@
     </ul>
 
     <ul class="navbar-nav navbar-collapse justify-content-end">
-      <li><a [routerLink]="['register']" routerLinkActive="router-link-active" class="nav-link">Register</a></li>
+      <li><a [routerLink]="['register']" routerLinkActive="router-link-active" class="nav-link"
+          *ngIf="isLoggedIn()===false">Register</a></li>
       <li><a [routerLink]="['login']" routerLinkActive="router-link-active" class="nav-link"
           *ngIf="isLoggedIn()===false">Login</a></li>
       <li><a (click)="showLogOutDialog()" [routerLink]="['logout']" routerLinkActive="router-link-active"
           class="nav-link" *ngIf="isLoggedIn()===true">Logout</a></li>
-      <form class="form-inline my-2 my-lg-0" *ngIf="isLoggedIn()===true">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
     </ul>
   </nav>
 </header>

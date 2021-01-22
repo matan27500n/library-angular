@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthorsDetailsComponent implements OnInit {
   authors: Author[] = [];
+  searchText: string;
   constructor(
     private adminService: AdminService,
     private loginService: LoginService,

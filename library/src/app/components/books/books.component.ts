@@ -12,6 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./books.component.css'],
 })
 export class BooksComponent implements OnInit {
+  searchText: string;
   message: string;
   public canPurchase = false;
   public authorID: number;
