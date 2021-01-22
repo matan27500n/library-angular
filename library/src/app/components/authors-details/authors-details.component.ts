@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { LoginService } from './../../services/login.service';
 import { AdminService } from './../../services/admin.service';
 import { Author } from './../../models/author';
 import { Component, OnInit } from '@angular/core';
@@ -9,10 +11,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthorsDetailsComponent implements OnInit {
   authors: Author[] = [];
-  constructor(private adminService: AdminService) {}
+  constructor(
+    private adminService: AdminService,
+    private loginService: LoginService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.getAllAuthors();
+    if (this.loginService.type === 'Admin') {
+      this.getAllAuthors();
+    } else {
+      this.router.navigateByUrl('**');
+    }
   }
 
   getAllAuthors() {
@@ -24,5 +34,18 @@ export class AuthorsDetailsComponent implements OnInit {
         alert(err.message);
       }
     );
+  }
+
+  deleteAuthor(id: number) {
+    if (confirm('Are you want do delete this author?')) {
+      this.adminService.deleteAuthor(id).subscribe(
+        (res) => {
+          this.authors = this.authors.filter((author) => author.id !== id);
+        },
+        (err) => {
+          alert(err.message);
+        }
+      );
+    }
   }
 }

@@ -72,6 +72,7 @@
                     <button type="submit" class="btn btn-success" (click)="registerCustomer(customer)">Register</button>
                   </div>
                 </form>
+                <div class="alert alert-success" *ngIf="message">{{message}}</div>
               </div>
             </div>
           </div>

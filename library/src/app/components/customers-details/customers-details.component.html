@@ -1,21 +1,25 @@
 <div class="container">
-  <table class="table table-image">
+  <div class="search-hero">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+      placeholder="&#61442;  Start searching for a customer by id, name, email or password">
+  </div>
+  <table class="table table-striped">
     <thead>
       <tr>
         <th>ID</th>
         <th>Name</th>
         <th>Email</th>
         <th>Password</th>
-        <th>Books</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of customers">
+      <tr *ngFor="let item of customers | filter:searchText">
         <td>{{item.id}}</td>
         <td>{{item.first_name}} {{item.last_name}}</td>
         <td>{{item.email}}</td>
         <td>{{item.password}}</td>
-        <td *ngFor="let book of item.books">{{book.name}}</td>
+        <td><button class="btn btn-danger" (click)="deleteCustomer(item.id)">Delete</button></td>
       </tr>
     </tbody>
   </table>

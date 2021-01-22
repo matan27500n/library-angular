@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   public loginSuccess = false;
   public credentials = new Credentials();
   message: string;
+  messageWrong: string;
   constructor(
     private adminService: AdminService,
     private router: Router,
@@ -42,7 +43,7 @@ export class LoginComponent implements OnInit {
       },
       (err) => {
         this.loginService.isLoggedIn = false;
-        alert(err.message);
+        this.messageWrong = 'You enter wrong username or password,please try again!'
       }
     );
   }

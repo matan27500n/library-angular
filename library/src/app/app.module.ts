@@ -17,6 +17,7 @@ import { AuthorsDetailsComponent } from './components/authors-details/authors-de
 import { CustomersDetailsComponent } from './components/customers-details/customers-details.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { RegisterComponent } from './components/register/register.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { RegisterComponent } from './components/register/register.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    Ng2SearchPipeModule,
   ],
   providers: [
     {

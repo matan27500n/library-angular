@@ -6,7 +6,7 @@
         <th>Name</th>
         <th>Email</th>
         <th>Password</th>
-        <th>Books</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -15,7 +15,7 @@
         <td>{{item.first_name}} {{item.last_name}}</td>
         <td>{{item.email}}</td>
         <td>{{item.password}}</td>
-        <td *ngFor="let book of item.books">{{book.name}}</td>
+        <td><button class="btn btn-danger" (click)="deleteAuthor(item.id)">Delete</button></td>
       </tr>
     </tbody>
   </table>

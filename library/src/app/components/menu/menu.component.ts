@@ -10,6 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
   public typeOfSystem: string;
+  messageAdmin: string;
+  messageAuthor: string;
+  messageCustomer: string;
   constructor(
     private loginService: LoginService,
     private router: Router,
@@ -17,6 +20,16 @@ export class MenuComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
+
+  checkType() {
+    if (this.loginService.type === 'Admin') {
+      this.messageAdmin = 'have a permission';
+    } else if (this.loginService.type === 'Author') {
+      this.messageAuthor = 'have a permission';
+    } else {
+      this.messageCustomer = 'have a permission';
+    }
+  }
 
   public resetDate(): void {
     this.loginService.email = '';
@@ -31,7 +44,9 @@ export class MenuComponent implements OnInit {
     if (confirm('Are you sure you want to log out?') === true) {
       this.adminService.logout().subscribe(
         (res) => {
-          console.log('logging out successfully');
+          this.messageAdmin = '';
+          this.messageAuthor = '';
+          this.messageCustomer = '';
         },
         (err) => {
           alert(err.message);

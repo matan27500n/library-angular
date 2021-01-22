@@ -89,4 +89,10 @@ export class AdminService {
       'http://localhost:8080/admin/getAllCustomers'
     );
   }
+
+  public deleteCustomer(id: number): Observable<any> {
+    return this.httpClient.delete<any>(
+      'http://localhost:8080/admin/deleteCustomer/' + id
+    );
+  }
 }
