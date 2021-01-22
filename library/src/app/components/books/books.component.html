@@ -16,10 +16,12 @@
         <label>Price</label>
         <input type="number" class="form-control" placeholder="Enter price" [(ngModel)]="item.price"
           [disabled]="isAfford ? false : true">
+        <label>Amount</label>
+        <input type="number" class="form-control" placeholder="Enter amount" [(ngModel)]="item.amount"
+          [disabled]="isAfford ? false : true">
         <button class="btn btn-primary" *ngIf="canPurchase" (click)="purchaseBook(item)">Purchase</button>
         <button class="btn btn-warning" (click)="updateBook(item)" *ngIf="isAfford">Update</button>
         <button class="btn btn-danger" (click)="deleteBook(item.id)">Delete</button>
-        <button class="btn btn-success" (click)="addBook()" *ngIf="isAfford">Add Book</button>
         <div class="alert alert-success" *ngIf="message">{{message}}</div>
       </div>
     </div>
