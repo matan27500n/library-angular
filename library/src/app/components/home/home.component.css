@@ -1,0 +1,8 @@
+.carousel {
+  background: #dcd5d4;
+  margin-top: 0px;
+}
+.carousel-item {
+  text-align: center;
+  min-height: 630px; /* Prevent carousel from being distorted if for some reason image doesn't load */
+}

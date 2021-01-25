@@ -1,64 +1,38 @@
-<!--<h1>Add Book</h1>
-<form>
-  <div class="form-group col-md-6">
-    <label for="inputEmail4">Name</label>
-    <input type="text" class="form-control" id="inputName4" placeholder="Name" [(ngModel)]="book.name">
+<body>
+  <div class="container">
+    <h1>Add Book</h1><br>
+
+    <div class="alert alert-warning" *ngIf="bookForm.invalid">Enter valid values</div>
+
+    <form (ngSubmit)="!bookForm.invalid && addBook(book)" #bookForm="ngForm">
+      <fieldset class="form-group col-md-6">
+        <label>Name</label>
+        <input type="text" #name="ngModel" [(ngModel)]="book.name" class="form-control" name="name" minlength="1"
+          required>
+      </fieldset>
+      <fieldset class="form-group col-md-6">
+        <label>Category</label>
+        <select class="form-control" [(ngModel)]="book.category" required #category="ngModel" name="category">
+          <option>Comedy</option>
+          <option>Drama</option>
+          <option>Action</option>
+          <option>Horror</option>
+        </select>
+      </fieldset>
+      <fieldset class="form-group col-md-6">
+        <label>Price</label>
+        <input type="number" #price="ngModel" [(ngModel)]="book.price" class="form-control" name="price" required>
+      </fieldset>
+      <fieldset class="form-group col-md-6">
+        <label>Amount</label>
+        <input type="number" #price="ngModel" [(ngModel)]="book.amount" class="form-control" name="amount" required>
+      </fieldset>
+      <fieldset class="form-group col-md-6">
+        <label>Image</label>
+        <input type="text" #image="ngModel" [(ngModel)]="book.image" class="form-control" name="image" required>
+      </fieldset>
+      <button type="submit" class="btn btn-success">Save</button>
+      <div class="alert alert-success" *ngIf="message">{{message}}</div>
+    </form>
   </div>
-  <div class="form-group col-md-6">
-    <label for="type">Select Type</label>
-    <select class="form-control" id="type" name="type" [(ngModel)]="book.category">
-      <option>Comedy</option>
-      <option>Drama</option>
-      <option>Action</option>
-      <option>Horror</option>
-    </select>
-  </div>
-  <div class="form-group col-md-6">
-    <label for="inputPrice">Price</label>
-    <input type="number" class="form-control" id="inputPrice" placeholder="Enter book price" [(ngModel)]="book.price">
-  </div>
-  <div class="form-group col-md-6">
-    <label for="inputImage">Image</label>
-    <input type="text" class="form-control" id="inputImage" placeholder="Enter image address" [(ngModel)]="book.image">
-  </div>
-  <button class="btn btn-primary" (click)="addBook(book)">Add Book</button>
-</form>-->
-
-
-
-<div class="container">
-  <h1>Add Book</h1><br>
-
-  <div class="alert alert-warning" *ngIf="bookForm.invalid">Enter valid values</div>
-
-  <form (ngSubmit)="!bookForm.invalid && addBook(book)" #bookForm="ngForm">
-    <fieldset class="form-group col-md-6">
-      <label>Name</label>
-      <input type="text" #name="ngModel" [(ngModel)]="book.name" class="form-control" name="name" minlength="1"
-        required>
-    </fieldset>
-    <fieldset class="form-group col-md-6">
-      <label>Category</label>
-      <select class="form-control" [(ngModel)]="book.category" required #category="ngModel" name="category">
-        <option>Comedy</option>
-        <option>Drama</option>
-        <option>Action</option>
-        <option>Horror</option>
-      </select>
-    </fieldset>
-    <fieldset class="form-group col-md-6">
-      <label>Price</label>
-      <input type="number" #price="ngModel" [(ngModel)]="book.price" class="form-control" name="price" required>
-    </fieldset>
-    <fieldset class="form-group col-md-6">
-      <label>Amount</label>
-      <input type="number" #price="ngModel" [(ngModel)]="book.amount" class="form-control" name="amount" required>
-    </fieldset>
-    <fieldset class="form-group col-md-6">
-      <label>Image</label>
-      <input type="text" #image="ngModel" [(ngModel)]="book.image" class="form-control" name="image" required>
-    </fieldset>
-    <button type="submit" class="btn btn-success">Save</button>
-    <div class="alert alert-success" *ngIf="message">{{message}}</div>
-  </form>
-</div>
+</body>
