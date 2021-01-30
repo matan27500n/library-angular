@@ -5,6 +5,7 @@ import { AuthorService } from './../../services/author.service';
 import { Book } from './../../models/book';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-books',
@@ -12,6 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./books.component.css'],
 })
 export class BooksComponent implements OnInit {
+  modalForm: FormGroup;
   searchText: string;
   message: string;
   public canPurchase = false;
@@ -30,7 +32,7 @@ export class BooksComponent implements OnInit {
     private router: Router,
     private adminService: AdminService,
     private customerService: CustomerService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.type = this.loginService.type;
@@ -67,6 +69,11 @@ export class BooksComponent implements OnInit {
         );
       this.canPurchase = true;
     }
+  }
+
+  resetForm() {
+    this.modalForm.reset();
+    console.log('reset');
   }
 
   addBook() {
@@ -150,4 +157,5 @@ export class BooksComponent implements OnInit {
       );
     }
   }
+
 }

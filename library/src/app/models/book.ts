@@ -5,6 +5,7 @@ export class Book {
     public category?: string,
     public price?: number,
     public amount?: number,
+    public summary?: string,
     public image?: string
-  ) {}
+  ) { }
 }

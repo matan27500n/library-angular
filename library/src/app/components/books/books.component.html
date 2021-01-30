@@ -1,28 +1,57 @@
 <body>
   <div class="search-hero">
     <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
-      placeholder="&#61442;  Start searching for a book by name, price or type">
+      placeholder="&#61442;  Start searching for a book by name, price or type" />
   </div>
-  <div class="container" *ngFor="let item of books | filter:searchText">
-    <img src="{{item.image}}" alt="img" class="image">
+  <div class="container" *ngFor="let item of books | filter: searchText">
+    <img src="{{ item.image }}" alt="img" class="image" />
     <div class="overlay overlayFade">
       <div class="text">
         <label>Book Name</label>
         <input type="text" class="form-control" placeholder="Enter name" [(ngModel)]="item.name"
-          [disabled]="isAfford ? false : true">
+          [disabled]="isAfford ? false : true" />
         <label>Category</label>
         <input type="text" class="form-control" placeholder="Enter category" [(ngModel)]="item.category"
-          [disabled]="isAfford ? false : true">
+          [disabled]="isAfford ? false : true" />
         <label>Price</label>
         <input type="number" class="form-control" placeholder="Enter price" [(ngModel)]="item.price"
-          [disabled]="isAfford ? false : true">
+          [disabled]="isAfford ? false : true" />
         <label>Amount</label>
         <input type="number" class="form-control" placeholder="Enter amount" [(ngModel)]="item.amount"
-          [disabled]="isAfford ? false : true">
-        <button class="btn btn-primary" *ngIf="canPurchase" (click)="purchaseBook(item)">Purchase</button>
-        <button class="btn btn-warning" (click)="updateBook(item)" *ngIf="isAfford">Update</button>
-        <button class="btn btn-danger" (click)="deleteBook(item.id)">Delete</button>
-        <div class="alert alert-success" *ngIf="message">{{message}}</div>
+          [disabled]="isAfford ? false : true" />
+        <button class="btn btn-primary" *ngIf="canPurchase" (click)="purchaseBook(item)">
+          Purchase
+        </button>
+        <button class="btn btn-warning" (click)="updateBook(item)" *ngIf="isAfford">
+          Update
+        </button>
+        <button class="btn btn-danger" (click)="deleteBook(item.id)">
+          Delete
+        </button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Summary
+        </button>
+        <div class="alert alert-success" *ngIf="message">{{ message }}</div>
+      </div>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{item.name}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            {{item.summary}}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
