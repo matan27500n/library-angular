@@ -3,7 +3,8 @@
     <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
       placeholder="&#61442;  Start searching for a book by name, price or type" />
   </div>
-  <div class="container" *ngFor="let item of books | filter: searchText">
+  <div class="container"
+    *ngFor="let item of books | filter: searchText | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
     <img src="{{ item.image }}" alt="img" class="image" />
     <div class="overlay overlayFade">
       <div class="text">
@@ -55,4 +56,6 @@
       </div>
     </div>
   </div>
+  <ngb-pagination [collectionSize]="books.length" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false"
+    [boundaryLinks]="true"></ngb-pagination>
 </body>

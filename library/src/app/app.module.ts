@@ -18,6 +18,9 @@ import { CustomersDetailsComponent } from './components/customers-details/custom
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { RegisterComponent } from './components/register/register.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+//import { NgxPaginationModule } from 'ngx-pagination';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -41,6 +44,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FormsModule,
     ReactiveFormsModule,
     Ng2SearchPipeModule,
+    NgbModule
   ],
   providers: [
     {
@@ -51,4 +55,4 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

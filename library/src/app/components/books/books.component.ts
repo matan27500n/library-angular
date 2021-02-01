@@ -13,6 +13,25 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./books.component.css'],
 })
 export class BooksComponent implements OnInit {
+  /*setDataSource(elements: any) {
+    throw new Error('Method not implemented.');
+  }
+  getDataSource(): any {
+    throw new Error('Method not implemented.');
+  }
+  setMaxVisibleItemsNumberTo(arg0: number) {
+    throw new Error('Method not implemented.');
+  }
+  calculateFirstItemIndex() {
+    throw new Error('Method not implemented.');
+  }
+  calculateLastItemIndex() {
+    throw new Error('Method not implemented.');
+  }*/
+  public page = 1;
+  public pageSize =10;
+
+
   modalForm: FormGroup;
   searchText: string;
   message: string;
