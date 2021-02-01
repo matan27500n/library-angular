@@ -6,6 +6,7 @@ import { Book } from './../../models/book';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup } from '@angular/forms';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-books',
@@ -29,7 +30,7 @@ export class BooksComponent implements OnInit {
     throw new Error('Method not implemented.');
   }*/
   public page = 1;
-  public pageSize =10;
+  public pageSize = 10;
 
 
   modalForm: FormGroup;
@@ -50,7 +51,8 @@ export class BooksComponent implements OnInit {
     private loginService: LoginService,
     private router: Router,
     private adminService: AdminService,
-    private customerService: CustomerService
+    private customerService: CustomerService,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
@@ -174,6 +176,26 @@ export class BooksComponent implements OnInit {
           alert(err.message);
         }
       );
+    }
+  }
+
+  closeResult = '';
+
+  open(content) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
     }
   }
 
