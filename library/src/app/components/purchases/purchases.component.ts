@@ -10,6 +10,7 @@ import { Book } from 'src/app/models/book';
   styleUrls: ['./purchases.component.css'],
 })
 export class PurchasesComponent implements OnInit {
+  searchText: string;
   id: number;
   idBook: number;
   public books: Book[] = [];

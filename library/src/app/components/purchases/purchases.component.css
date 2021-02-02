@@ -37,3 +37,10 @@
   left: 0;
   background-color: #00b1bab3;
 }
+
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}

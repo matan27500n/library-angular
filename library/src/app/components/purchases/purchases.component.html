@@ -1,11 +1,17 @@
 <body>
-  <h1>My Purchases</h1>
-  <div class="container" *ngFor="let item of books">
+  <div>
+    <h1>My Purchases</h1>
+  </div>
+  <div class="search-hero">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+      placeholder="&#61442;  Start searching for a book by name, price or type" />
+  </div>
+  <div class="container" *ngFor="let item of books | filter: searchText;">
     <img src="{{item.image}}" alt="img" class="image">
     <div class="overlay overlayFade">
       <div class="text">
         <label>Book Name</label>
-        <input type="text" class="form-control" placeholder="Enter name" [(ngModel)]="item.name" [disabled]>
+        <input type="text" class="form-control" placeholder="Enter name" [(ngModel)]="item.name" [disabled] disabled>
         <label>Category</label>
         <input type="text" class="form-control" placeholder="Enter category" [(ngModel)]="item.category" [disabled]>
         <label>Price</label>
