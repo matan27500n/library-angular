@@ -20,7 +20,6 @@ import { RegisterComponent } from './components/register/register.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 //import { NgxPaginationModule } from 'ngx-pagination';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.component';
 
 
 @NgModule({
@@ -37,7 +36,6 @@ import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.com
     CustomersDetailsComponent,
     AddBookComponent,
     RegisterComponent,
-    ThemeToggleComponent,
   ],
   imports: [
     BrowserModule,
