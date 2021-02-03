@@ -1,6 +1,9 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-dark bg-primary">
     <ul class="navbar-nav">
+      <div class="oval" [ngClass]="{ovalSelected: theme == 'bootstrap'}" (click)="toggleTheme()">
+        <div class="button" [ngClass]="{buttonSelected: theme == 'bootstrap'}"></div>
+      </div>
       <li class="nav-item dropdown" *ngIf="isLoggedIn()" (click)="checkType()">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">

@@ -2,6 +2,7 @@ import { AdminService } from './../../services/admin.service';
 import { Router } from '@angular/router';
 import { LoginService } from './../../services/login.service';
 import { Component, OnInit } from '@angular/core';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.css'],
 })
 export class MenuComponent implements OnInit {
+  theme: string = 'bootstrap';
   public typeOfSystem: string;
   messageAdmin: string;
   messageAuthor: string;
@@ -16,10 +18,21 @@ export class MenuComponent implements OnInit {
   constructor(
     private loginService: LoginService,
     private router: Router,
-    private adminService: AdminService
-  ) {}
+    private adminService: AdminService,
+    private themeService: ThemeService
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+
+  toggleTheme() {
+    if (this.theme === 'bootstrap') {
+      this.theme = 'bootstrap-dark';
+    } else {
+      this.theme = 'bootstrap';
+    }
+
+    this.themeService.setTheme(this.theme);
+  }
 
   checkType() {
     if (this.loginService.type === 'Admin') {

@@ -28,6 +28,10 @@
         <input type="number" #price="ngModel" [(ngModel)]="book.amount" class="form-control" name="amount" required>
       </fieldset>
       <fieldset class="form-group col-md-6">
+        <label>Summary</label>
+        <input type="text" #summary="ngModel" [(ngModel)]="book.summary" class="form-control" name="summary" required>
+      </fieldset>
+      <fieldset class="form-group col-md-6">
         <label>Image</label>
         <input type="text" #image="ngModel" [(ngModel)]="book.image" class="form-control" name="image" required>
       </fieldset>

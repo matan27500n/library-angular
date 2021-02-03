@@ -11,6 +11,7 @@ import { Page404Component } from './components/page404/page404.component';
 import { PurchasesComponent } from './components/purchases/purchases.component';
 import { CustomersDetailsComponent } from './components/customers-details/customers-details.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'authors-details', component: AuthorsDetailsComponent },
   { path: 'customers-details', component: CustomersDetailsComponent },
   { path: 'add-book', component: AddBookComponent },
+  { path: 'theme', component: ThemeToggleComponent },
   { path: 'logout', component: LogoutComponent },
   { path: '**', component: Page404Component },
 ];
@@ -30,4 +32,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
