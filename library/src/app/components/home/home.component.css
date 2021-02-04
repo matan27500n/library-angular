@@ -7,6 +7,12 @@
   min-height: 630px; /* Prevent carousel from being distorted if for some reason image doesn't load */
 }
 
-h3{
+h3 {
   text-align: center;
+}
+
+.show-less {
+  height: 9rem;
+  overflow: hidden;
+  padding: 0rem;
 }
