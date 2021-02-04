@@ -11,11 +11,11 @@
     <div class="overlay overlayFade">
       <div class="text">
         <label>Book Name</label>
-        <input type="text" class="form-control" placeholder="Enter name" [(ngModel)]="item.name" [disabled] disabled>
+        <input type="text" class="form-control" placeholder="Enter name" [(ngModel)]="item.name" disabled>
         <label>Category</label>
-        <input type="text" class="form-control" placeholder="Enter category" [(ngModel)]="item.category" [disabled]>
+        <input type="text" class="form-control" placeholder="Enter category" [(ngModel)]="item.category" disabled>
         <label>Price</label>
-        <input type="number" class="form-control" placeholder="Enter price" [(ngModel)]="item.price" [disabled]>
+        <input type="number" class="form-control" placeholder="Enter price" [(ngModel)]="item.price" disabled>
         <button class="btn btn-danger" (click)="cancelPurchase(item.id)">Cancel</button>
       </div>
     </div>
