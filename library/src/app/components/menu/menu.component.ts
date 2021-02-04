@@ -22,7 +22,8 @@ export class MenuComponent implements OnInit {
     private themeService: ThemeService
   ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+  }
 
   toggleTheme() {
     if (this.theme === 'bootstrap') {
