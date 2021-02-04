@@ -64,7 +64,8 @@
 
             </form>
             <br />
-            <a href="login" class="pull-right btn btn-block btn-info"> Already Register ? </a>
+            <a [routerLink]="['/login']" routerLinkActive="router-link-active"
+              class="pull-right btn btn-block btn-info"> Already Register ? </a>
             <div class="alert alert-success" *ngIf="message">{{message}}</div>
 
           </div>
@@ -100,7 +101,8 @@
 
             </form>
             <br />
-            <a href="#" class="pull-right btn btn-block btn-info"> Already Register ? </a>
+            <a [routerLink]="['/login']" routerLinkActive="router-link-active"
+              class="pull-right btn btn-block btn-info"> Already Register ? </a>
             <div class="alert alert-success" *ngIf="message">{{message}}</div>
           </div>
         </div>
